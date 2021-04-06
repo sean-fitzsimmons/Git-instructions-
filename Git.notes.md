@@ -956,7 +956,26 @@ Its good practice to merge master branch to the local branch becasue it will red
 AND NOW YOU ARE UP TO DATE!
 
 ## Why rewrite history 
-update 
+    Why we need histery? 
+        To see what was changed, why and when. 
+    Bad history 
+        Poor commit messges 
+        large commits 
+        small commits 
+    Clean history 
+        Shows the story of our project 
+    Tools to clean 
+        Squash small, related commits 
+        Split large commits 
+        Reword commit messages 
+        Drop unwanted commits 
+        Modify content of commits 
+    VERY DANGEROUS 
+        Need to know what you are doing before touching the history 
+## The golden rule of rewriting history 
+
+
+
 
 
 
