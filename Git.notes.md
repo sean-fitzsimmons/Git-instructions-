@@ -973,9 +973,7 @@ AND NOW YOU ARE UP TO DATE!
     VERY DANGEROUS 
         Need to know what you are doing before touching the history 
 ## The golden rule of rewriting history 
-
-
-
+Lets add some in info 
 
 
 
