@@ -973,6 +973,131 @@ AND NOW YOU ARE UP TO DATE!
     VERY DANGEROUS 
         Need to know what you are doing before touching the history 
 ## The golden rule of rewriting history 
+DON'T REWRITE PUBLIC HISTORY 
+    It just makes thh history supernoisy and not linear 
+    Once you push your work, its pubic and final 
+Always clean up private history before sharing with world
+
+## Example of bad history 
+* 088455d (HEAD -> master) .
+    This just has a period 
+* f666091 WIP
+* 111bd75 Update terms of service and Google Map SDK version.
+    This should be split into two different commits, Update term of service has nothing to do with Google Map SDK version
+* 72856ea WIP
+    Work in process commits are just noisey history 
+* 8441b05 Add a reference to Google Map SDK.
+    This should be before render restrants on the map 
+* 8527033 Change the color of restaurant icons.
+    This, fix a typo and render can all be together
+* af26a96 Fix a typo.
+* 6fb2ba7 Render restaurants the map.
+    Should say render restaurants on the map 
+* 70ef834 Initial commit
+
+## Undoing commits 
+Only if we have not pushed the commit 
+git reset --hard HEAD~1
+    This will reset the head one space back from where it currenctly is 
+    --soft Removes the commit only 
+    --mixed Ustages files, Default option  
+    --hard Discards local changes 
+## Reverting commits 
+    Pushed all of these commits to a remote repo and want to undo one or more 
+git revert HEAD
+    Revert just the head 
+git revert HEAD~2  
+    will revert just the secound
+git revert HEAD~2..HEAD  
+    will revert head to head~2 
+A better way to revert 
+git revert --no-commit HEAD~2..
+    Git will figure out what the changes are and then apply them to the staging ara 
+    This will revert the last two commits 
+git status -s 
+    See all of the changes in the staging area 
+git revert --abort 
+    To get out of these area 
+git revert --continue 
+    Happy with the changes 
+    Give it a name encompasing all the reverts
+Basically what that does is puts all the reverts on one line so its not as cluttered like the other method 
+## Recovering Lost commits 
+git reset --hard HEAD~6 
+    Accidently delete 6 commits 
+        Its okay, git actually hold on to them for so they can be recovered 
+git reflog 
+    Log of how a reference has moved in the history 
+git reset --hard HEAD@{1}
+    This is the last place the head was before reverting all 6 
+    You can also use a the id of that entry 
+        Now all th commits are back 
+If we had a different branch, for example one called feature
+git reflog show feature
+    This will show the reference of the future pointer 
+## Amending the Last Commit 
+Made a commit and then realized made a mistake 
+    Dont need to make a new commit, just ammend it 
+echo cafe >> map.txt 
+git commit -am "Render cafes on the map" 
+    Commit is made 
+code map.txt 
+    pull up the code and make changes 
+git commit --amend 
+    Will pull the code back up to change the name or not 
+and then your code is amended!
+To add a file do the exact same thing 
+git reset --mixed HEAD~1 
+    This will remove the changes back to the working directory like --mixed does 
+git clean -fd 
+    This will remove untracked files form the working directory 
+git commit -am "Render the map" 
+    Now you commited just the modified text... Blue cafe
+
+## Amending an Earlier commit 
+Use interactive rebasing to amend an early commit 
+git rebase -i 8441b05
+    -i mean going to interact with the rebase option 
+type edit in the commit you want to amend 
+echo license > license.txt 
+git add . 
+git commit --amend 
+git rebase --continue 
+    You commit is amended!
+        Keep in mind that its going to have to change the id for all the commits leading up to that commit
+            So, only make these in a local repo that has not been shared to the remote depo yet because this is rewriting history 
+## Dropping commits 
+    Dropping is going to create conflicts especially if a new file is introduced. 
+    This is going to be a rebase operation 
+git rebase -i 72856ea^ 
+ or 
+git rebase -i 72856ea~1 
+    Same thing. We have to rebase the parent to drop commit 
+    either type drop or delete the file 
+        Now resolve the conflicts
+git stutus -s 
+    See what is going on with the conflicts 
+git log --oneline --all --graph 
+    See where the changes are goiing to go 
+git mergetools 
+    Modify or delete the changes 
+        This will apply to the next commit. 
+git rebase --contiue 
+    You all deleted and the changes are either deleted or modified and applyed to the next commit 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
