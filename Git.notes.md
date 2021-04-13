@@ -1085,6 +1085,25 @@ git mergetools
 git rebase --contiue 
     You all deleted and the changes are either deleted or modified and applyed to the next commit 
     
+## Rewording commits 
+    Use rebase again 
+git rebase -i 6fb2ba7^ 
+    replace the word pick with reword on the commits you want to reword 
+It will open up the commits you want to reword 
+    Reword and close the file and you are good 
+Changing the name changes the commit id and all of the commits before it 
+    This is rewriting history
+        Do this only with the commits in the local repo 
+
+## Reording commits 
+Rebase again!
+git rebase -i 70ef834
+    This is the last commit so I can see all the commits 
+use option-uparrow 
+    To move the line you want up or down the commit list to the spot desired 
+
+## How to squash commits together 
+The parent is the commit below the one you want to work on
 
 
 
