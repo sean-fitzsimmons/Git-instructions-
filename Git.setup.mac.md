@@ -24,8 +24,9 @@ git remote add origin url
             if already commited then git rm --cached .DS.Store
 
 cloneing a repo: 
+cd code file
+    Open the parent file you want it to be 
 git clone url 
-git remote add origin url 
-git pull origin url 
-    Now you have all the content 
+cd repoNmae 
+    Just cd the path to the cloned repo and youre good to go
 
